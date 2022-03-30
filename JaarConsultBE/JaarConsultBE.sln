@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{25B9F82E-D8CF-4A08-B2FE-CE4E324CF727}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FipeService", "FipeService\FipeService.csproj", "{64628B85-8375-415B-860D-3FA854C64F05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D49B506A-F32D-41C2-ABA2-372AD487017E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D49B506A-F32D-41C2-ABA2-372AD487017E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D49B506A-F32D-41C2-ABA2-372AD487017E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64628B85-8375-415B-860D-3FA854C64F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64628B85-8375-415B-860D-3FA854C64F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64628B85-8375-415B-860D-3FA854C64F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64628B85-8375-415B-860D-3FA854C64F05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{C3ED8E86-6E74-4CFB-91C0-7F1644493FE9} = {E6556B57-0F6C-48DC-BD88-3EF8060F1CDD}
 		{08A04462-0CEC-4A91-9111-71DB7CD141A0} = {E6556B57-0F6C-48DC-BD88-3EF8060F1CDD}
 		{D49B506A-F32D-41C2-ABA2-372AD487017E} = {B09A924B-D633-4EF8-B711-9A0BF1A7E52E}
+		{64628B85-8375-415B-860D-3FA854C64F05} = {B09A924B-D633-4EF8-B711-9A0BF1A7E52E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59A8EA54-FB03-4D92-BC7D-695BADFFFBF5}

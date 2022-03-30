@@ -1,4 +1,5 @@
 using Application;
+using FipeService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +24,7 @@ namespace WebApi
         {
 
             services.AddApplication();
+            services.AddFipeService(Configuration);
             services.AddPersistence(Configuration);
 
             services.AddControllers();

@@ -1,4 +1,5 @@
 ﻿using Application.Interface;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,9 @@ namespace Persistence
                     b => b.MigrationsAssembly(typeof(ApplicationContextDb).Assembly.FullName)));
 
             services.AddScoped<IAplicationContextDb>(provider => provider.GetService<ApplicationContextDb>());
+
+         
+
         }
     }
 }
