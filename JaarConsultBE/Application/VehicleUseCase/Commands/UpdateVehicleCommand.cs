@@ -1,4 +1,5 @@
 ﻿using Application.Interface;
+using Common.Results;
 using Domain.Entities;
 using MediatR;
 using System;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.VehicleUseCase.Commands
 {
-    public class UpdateVehicleCommand : IRequest<Guid>
+    public class UpdateVehicleCommand : IRequest<Result<Guid>>
     {
         public Guid Id { get; set; }
         public string Placa { get;  set; }
@@ -20,7 +21,7 @@ namespace Application.VehicleUseCase.Commands
         public string CodigoFipe { get;  set; }
         public string MesReferencia { get;  set; }
 
-        public class UpdateVehicleCommandHandler : IRequestHandler<UpdateVehicleCommand, Guid>
+        public class UpdateVehicleCommandHandler : IRequestHandler<UpdateVehicleCommand, Result<Guid>>
         {
 
             private readonly IAplicationContextDb _context;
@@ -30,12 +31,15 @@ namespace Application.VehicleUseCase.Commands
                 _context = context;
             }
 
-            public async Task<Guid> Handle(UpdateVehicleCommand request, CancellationToken cancellationToken)
+            public async Task<Result<Guid>> Handle(UpdateVehicleCommand request, CancellationToken cancellationToken)
             {
 
                 var searchVehicle  = _context.Veiculos.Where(v => v.Id == request.Id).FirstOrDefault();
 
-                if (searchVehicle == null)  return default;                
+                if (searchVehicle == null)
+                {
+                    return await Result<Guid>.FailAsync("Veículo não localizado!");
+                }           
 
                 searchVehicle.AnoModelo = request.AnoModelo;
                 searchVehicle.CodigoFipe = request.CodigoFipe;
@@ -47,7 +51,7 @@ namespace Application.VehicleUseCase.Commands
                 searchVehicle.Valor = request.Valor;
 
                 await _context.SaveChangesAsync();
-                return searchVehicle.Id;
+                return await Result<Guid>.SuccessAsync(searchVehicle.Id, "Veículo atualizado com sucesso!");
 
             }
         }

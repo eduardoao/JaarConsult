@@ -21,19 +21,13 @@ namespace FipeService.Context
         }
 
         public async Task<Veiculo> ReturnDataFromFipe(Veiculo veiculo)
-        {
-            try
-            {
+        {           
                 await ResultDataFromApi(veiculo);
+                if (_veiculosList == null) return null;
+
                 var resultByYear = _veiculosList.Where(v => v.AnoModelo == veiculo.AnoModelo).FirstOrDefault();
-
                 return resultByYear;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
           
         }
 
@@ -42,8 +36,10 @@ namespace FipeService.Context
             using (var httpClient = new HttpClient())
             {
                 using (var result = await httpClient.GetAsync(_apiPath + "/" + veiculo.CodigoFipe))
-                {                   
-                    string apiResponse = await result.Content.ReadAsStringAsync();
+                {
+                    if (result.StatusCode == System.Net.HttpStatusCode.BadRequest) return;
+                   
+                    string apiResponse = await result.Content.ReadAsStringAsync();                   
                     _veiculosList = JsonConvert.DeserializeObject<List<Veiculo>>(apiResponse);                  
                 
                 }

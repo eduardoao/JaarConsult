@@ -9,13 +9,13 @@ namespace Domain.Entities
         public Veiculo()
         {
             if (Id == Guid.Empty)  Id = Guid.NewGuid();
-            this.DataCriacao = new DateTime();
+            this.DataCriacao = DateTime.Now;
         }
         
         public Veiculo(string codigoFipe, int anoModelo)
         {
             if (Id == Guid.Empty) Id = Guid.NewGuid();
-            this.DataCriacao = new DateTime();
+            this.DataCriacao = DateTime.Now;
             CodigoFipe = codigoFipe;
             AnoModelo = anoModelo;  
         }
@@ -23,7 +23,7 @@ namespace Domain.Entities
         public Veiculo(string placa, string valor, string modelo, string marca ,int anoModelo, string combustivel, string codigoFipe, string mesReferencia)
         {
             if (Id == Guid.Empty) Id = Guid.NewGuid();
-            this.DataCriacao = new DateTime();
+            this.DataCriacao =  DateTime.Now;
             Placa = placa;
             Valor = valor;
             Modelo = modelo;

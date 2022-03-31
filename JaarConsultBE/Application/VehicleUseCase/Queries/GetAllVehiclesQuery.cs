@@ -1,4 +1,6 @@
 ﻿using Application.Interface;
+using Common.Results;
+using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -7,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Application.VehicleUseCase.Queries
 {
-    public class GetAllVehiclesQuery: IRequest<IEnumerable<Domain.Entities.Veiculo>>
+    public class GetAllVehiclesQuery: IRequest<Result<IEnumerable<Veiculo>>>
     {
-        public class GetAllVehiclesQueryHandler : IRequestHandler<GetAllVehiclesQuery, IEnumerable<Domain.Entities.Veiculo>>
+        public class GetAllVehiclesQueryHandler : IRequestHandler<GetAllVehiclesQuery, Result<IEnumerable<Veiculo>>>
         {
             private readonly IAplicationContextDb _context;
 
@@ -18,13 +20,16 @@ namespace Application.VehicleUseCase.Queries
                 _context = context;
             }
 
-            public async Task<IEnumerable<Domain.Entities.Veiculo>> Handle(GetAllVehiclesQuery request, CancellationToken cancellationToken)
+            public async Task<Result<IEnumerable<Veiculo>>> Handle(GetAllVehiclesQuery request, CancellationToken cancellationToken)
             {
                 var vehicleList = await _context.Veiculos.ToListAsync();
-                if (vehicleList == null)         
-                    return null;                
-                return vehicleList.AsReadOnly();
+                if (vehicleList.Count == 0)               
+                    return await Result<IEnumerable<Veiculo>>.FailAsync("Nenhum veículo cadastrado!");
+
+                return await Result<IEnumerable<Veiculo>>.SuccessAsync(vehicleList);
+                
             }
+          
         }
     }
 }
