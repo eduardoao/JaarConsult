@@ -9,7 +9,6 @@ namespace Domain.Entities
         {
             CodigoFipe = codigoFipe;
             AnoModelo = anoModelo;  
-
         }
 
         public Veiculo(string placa, decimal valor, string modelo, string marca ,int anoModelo, string combustivel, string codigoFipe, string mesReferencia)
@@ -25,15 +24,14 @@ namespace Domain.Entities
         }
 
 
-
-        public string Placa { get; private set; }
-        public decimal Valor { get; private set; }
-        public string Marca { get; private set; }
-        public string Modelo { get; private set; }
-        public int AnoModelo { get; private set; }
-        public string Combustivel { get; private set; }
-        public string CodigoFipe { get; private set; }
-        public string MesReferencia { get; private set; }
+        public string Placa { get;  set; }
+        public decimal Valor { get;  set; }
+        public string Marca { get;  set; }
+        public string Modelo { get;  set; }
+        public int AnoModelo { get;  set; }
+        public string Combustivel { get;  set; }
+        public string CodigoFipe { get;  set; }
+        public string MesReferencia { get;  set; }
      
     }
 }
