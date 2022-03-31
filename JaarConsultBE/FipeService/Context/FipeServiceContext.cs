@@ -3,6 +3,7 @@ using Domain.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -22,9 +23,10 @@ namespace FipeService.Context
         public async Task<Veiculo> ReturnDataFromFipe(Veiculo veiculo)
         {
             await ResultDataFromApi(veiculo);
-            //var resultByYear = _veiculosList.
-
-            throw new NotImplementedException();
+            var resultByYear = _veiculosList.Single( v=>v.AnoModelo == veiculo.AnoModelo); 
+            
+            return resultByYear;
+          
         }
 
         private async Task ResultDataFromApi(Veiculo veiculo)

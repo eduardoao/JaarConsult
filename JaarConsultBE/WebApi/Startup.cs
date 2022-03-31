@@ -24,6 +24,7 @@ namespace WebApi
         {
 
             services.AddApplication();
+            
             services.AddFipeService(Configuration);
             services.AddPersistence(Configuration);
 
