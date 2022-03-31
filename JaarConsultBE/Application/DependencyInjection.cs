@@ -9,9 +9,8 @@ namespace Application
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddMediatR(Assembly.GetExecutingAssembly());
-
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+            services.AddMediatR(Assembly.GetExecutingAssembly());            
+          
         }
     }
 }

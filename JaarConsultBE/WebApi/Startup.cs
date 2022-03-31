@@ -7,6 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Persistence;
+using FluentValidation;
+using MediatR;
+using Application.PipelineBehaviour;
+using FluentValidation.AspNetCore;
+using Application.Validators;
 
 namespace WebApi
 {
@@ -20,15 +25,27 @@ namespace WebApi
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
+        public void ConfigureServices(IServiceCollection services) {
+
+            services.AddMvc().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<CreateVehicleCommandValidators>());
+
+
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
             services.AddApplication();
-            
+
+           // services.AddValidatorsFromAssembly(typeof(Startup).Assembly);          
+
+            services.AddControllers();          
+
+          
+
             services.AddFipeService(Configuration);
             services.AddPersistence(Configuration);
 
-            services.AddControllers();
+          
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
