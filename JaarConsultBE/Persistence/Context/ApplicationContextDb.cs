@@ -14,7 +14,7 @@ namespace Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Veiculo>().Property(p => p.Valor).HasColumnType("decimal(10, 2)");
+           // modelBuilder.Entity<Veiculo>().Property(p => p.Valor).HasColumnType("decimal(10, 2)");
 
             base.OnModelCreating(modelBuilder);
         }

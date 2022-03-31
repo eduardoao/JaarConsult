@@ -19,11 +19,11 @@ namespace Application.VehicleUseCase.Queries
                 _fipeContext = fipeContext;
             }
 
-            public Task<Veiculo> Handle(GetVehicleQueryByCodeFipe request, CancellationToken cancellationToken)
+            public  Task<Veiculo> Handle(GetVehicleQueryByCodeFipe request, CancellationToken cancellationToken)
             {
                 var veiculoInput = new Veiculo(request.Code, request.Year);
-                _fipeContext.ReturnDataFromFipe(veiculoInput);
-                return Task.FromResult(veiculoInput);
+                var resulVehicleFromFipe = _fipeContext.ReturnDataFromFipe(veiculoInput);
+                return  resulVehicleFromFipe;
               
             }
         }

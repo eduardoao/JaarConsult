@@ -18,14 +18,15 @@ namespace WebApi.Controllers.v1
             return Ok(await Mediator.Send(vehicleCommand));
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update (Guid id,UpdateVehicleCommand vehicleCommand)
         {
-            if (id != vehicleCommand.Id) return BadRequest();
+            //if (id != vehicleCommand.Id) return BadRequest();
+            vehicleCommand.Id = id;
             return Ok(await Mediator.Send(vehicleCommand));
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete (Guid id)
         {
             return Ok(await Mediator.Send(new DeleteVehicleCommand { Id = id }));
@@ -35,13 +36,7 @@ namespace WebApi.Controllers.v1
         public async Task<IActionResult> GetAll()
         {
             return Ok(await Mediator.Send(new GetAllVehiclesQuery()));
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(Guid id)
-        {
-            return Ok(await Mediator.Send(new GetVehicleQueryById { Id = id }));
-        }
+        }      
 
         [HttpGet("{plate}")]
         public async Task<IActionResult> GetByPlate(string plate)
@@ -49,10 +44,10 @@ namespace WebApi.Controllers.v1
             return Ok(await Mediator.Send(new GetVehicleQueryByPlate { Plate = plate }));
         }
 
-        [HttpGet("{codefipe}")]
-        public async Task<IActionResult> GetByCodeFipe(string codeFipe, int year)
+        [HttpGet("{codefipe}/{year}")]
+        public async Task<IActionResult> GetByCodeFipe(string codefipe, int year)
         {
-            return Ok(await Mediator.Send(new GetVehicleQueryByCodeFipe { Code = codeFipe , Year = year }));
+            return Ok(await Mediator.Send(new GetVehicleQueryByCodeFipe { Code = codefipe, Year = year }));
         }
     }
 }
