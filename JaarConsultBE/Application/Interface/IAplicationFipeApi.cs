@@ -5,6 +5,6 @@ namespace Application.Interface
 {
     public interface IAplicationFipeApi
     {
-        Task<Domain.Entities.Veiculo> ReturnDataFromFipe(Domain.Entities.Veiculo veiculo); 
+        Task<Veiculo> ReturnDataFromFipe(Veiculo veiculo); 
     }
 }

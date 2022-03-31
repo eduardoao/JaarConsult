@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Veiculo.Queries
+namespace Application.VehicleUseCase.Queries
 {
     public class GetAllVehiclesQuery: IRequest<IEnumerable<Domain.Entities.Veiculo>>
     {

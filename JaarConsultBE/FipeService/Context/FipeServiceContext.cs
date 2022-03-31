@@ -23,9 +23,11 @@ namespace FipeService.Context
         public async Task<Veiculo> ReturnDataFromFipe(Veiculo veiculo)
         {
             await ResultDataFromApi(veiculo);
-            var resultByYear = _veiculosList.Single( v=>v.AnoModelo == veiculo.AnoModelo); 
+            var resultByYear = _veiculosList.Single( v=>v.AnoModelo == veiculo.AnoModelo ); 
             
             return resultByYear;
+
+
           
         }
 
