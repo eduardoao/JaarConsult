@@ -1,0 +1,20 @@
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">FIPE</a>
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="vehicles" class="nav-link">Veículos</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="create" class="nav-link">Cadastro</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="vehicle/:plate'" class="nav-link">Busca</a>
+      </li>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <router-outlet></router-outlet>
+  </div>
+</div>

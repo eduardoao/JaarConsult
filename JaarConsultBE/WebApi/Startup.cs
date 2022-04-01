@@ -29,16 +29,20 @@ namespace WebApi
 
             services.AddMvc().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<CreateVehicleCommandValidators>());
 
-
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
             services.AddApplication();
 
-           // services.AddValidatorsFromAssembly(typeof(Startup).Assembly);          
+            // Add Cors
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
 
-            services.AddControllers();          
 
-          
+            services.AddControllers();             
 
             services.AddFipeService(Configuration);
             services.AddPersistence(Configuration);
@@ -67,6 +71,9 @@ namespace WebApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Enable Cors
+            app.UseCors("MyPolicy");
 
             app.UseEndpoints(endpoints =>
             {

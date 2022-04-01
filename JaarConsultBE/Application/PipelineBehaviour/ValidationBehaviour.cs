@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Common.Results;
+using FluentValidation;
 using MediatR;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,8 @@ namespace Application.PipelineBehaviour
                 if (failures.Count != 0)
                     throw new ValidationException(failures);
             }
-            return await next();
+            return await  next();
         }
+
     }
 }

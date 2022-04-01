@@ -1,0 +1,127 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Procura pela placa do veículo"
+        [(ngModel)]="placa"
+      />
+    </div>
+
+    <div class="col">
+      <button
+        class="btn btn-outline-secondary"
+        type="button"
+        (click)="getVehicleByPlate()"
+      >
+        Buscar
+      </button>
+    </div>
+  </div>
+
+  <form>
+    <div class="form-group">
+      <label for="placaInput">Placa</label>
+      <input
+        class="form-control"
+        id="placaInput"
+        aria-describedby="placaInputHelp"
+        placeholder="Digite a placa"
+        required
+        [(ngModel)]= vehicle.placa
+        name="placa"
+      />
+      <small id="placaInputHelp" class="form-text text-muted">Digite a placa no formato XXX-XXXX</small>
+    </div>
+
+    <div class="form-group">
+      <label for="valorInput">Valor</label>
+      <input
+      class="form-control"
+      id="valorInput"
+      aria-describedby="valorInputHelp"
+      placeholder="Valores em Reais"
+      required
+      [(ngModel)]= vehicle.valor
+      name="valor"
+    />
+      <small id="valorInputHelp" class="form-text text-muted">Valor do veículo em Reais</small>
+    </div>
+
+    <div class="form-group">
+      <label for="valorInput">Marca</label>
+      <input
+      class="form-control"
+      id="marcaInput"
+      aria-describedby="marcaInputHelp"
+      placeholder="Marca do veículo"
+      required
+      [(ngModel)]= vehicle.marca
+      name="marca"
+    />
+      <small id="marcaInputHelp" class="form-text text-muted">Digite a marca do veículo</small>
+    </div>
+
+    <div class="form-group">
+      <label for="modeloInput">Modelo</label>
+      <input
+      class="form-control"
+      id="modeloInput"
+      aria-describedby="modeloInputHelp"
+      placeholder="Modelo do veículo"
+      required
+      [(ngModel)]= vehicle.modelo
+      name="modelo"
+    />
+      <small id="modeloInputHelp" class="form-text text-muted">Digite o modelo do veículo</small>
+    </div>
+
+    <div class="form-group">
+      <label for="combustivelInput">Combustivel</label>
+      <input
+      class="form-control"
+      id="combustivelInput"
+      aria-describedby="combustivelInputHelp"
+      placeholder="Combustivel do veículo"
+      required
+      [(ngModel)]= vehicle.combustivel
+      name="combustivel"
+    />
+      <small id="combustivelInputHelp" class="form-text text-muted">Digite o tipo de combustível do veículo</small>
+    </div>
+
+    <div class="form-group">
+      <label for="codigoFipeInput">Código FIPE</label>
+      <input
+      class="form-control"
+      id="codigoFipeInput"
+      aria-describedby="codigoFipeInputHelp"
+      placeholder="Código do veículo"
+      required
+      [(ngModel)]= vehicle.codigoFipe
+      name="codigoFipe"
+    />
+      <small id="codigoFipeInputHelp" class="form-text text-muted">Digite o código FIPE</small>
+    </div>
+
+    <div class="form-group">
+      <label for="modeloInput">Mês referência</label>
+      <input
+      class="form-control"
+      id="mesReferenciaInput"
+      aria-describedby="mesReferenciaInputHelp"
+      placeholder="Mês de referência"
+      required
+      [(ngModel)]= vehicle.mesReferencia
+      name="mesReferencia"
+    />
+      <small id="mesReferenciaInputHelp" class="form-text text-muted">Mês de referência</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary"
+    (click)="update()">Atualizar</button>
+  </form>
+
+</div>
