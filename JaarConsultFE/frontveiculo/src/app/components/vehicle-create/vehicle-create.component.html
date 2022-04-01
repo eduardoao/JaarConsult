@@ -1,5 +1,25 @@
 <div class="container">
 
+    <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{ successMessage }}
+    </ngb-alert>
+    <p>
+
+    <ngb-alert #selfClosingAlert *ngIf="errorMessage" type="danger" (closed)="errorMessage = ''">{{ errorMessage }}
+    </ngb-alert>
+    <p>
+
+    <p>
+      001004-9
+    </p>
+
+    <p>
+      2000
+    </p>
+
+    <p>
+      AAA-0002
+    </p>
+
   <div class="row">
     <div class="col">
       <input

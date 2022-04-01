@@ -1,5 +1,13 @@
 <div class="container">
 
+  <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{ successMessage }}
+  </ngb-alert>
+  <p>
+
+  <ngb-alert #selfClosingAlert *ngIf="errorMessage" type="danger" (closed)="errorMessage = ''">{{ errorMessage }}
+  </ngb-alert>
+  <p>
+
   <div class="row">
     <div class="col">
       <input
@@ -120,8 +128,13 @@
       <small id="mesReferenciaInputHelp" class="form-text text-muted">Mês de referência</small>
     </div>
 
-    <button type="submit" class="btn btn-primary"
-    (click)="update()">Atualizar</button>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary"
+      (click)="update()">Atualizar</button>
+
+      <button type="submit" class="btn btn-danger"
+      (click)="trash()">Excluir</button>
+    </div>
   </form>
 
 </div>

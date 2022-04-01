@@ -15,7 +15,7 @@ namespace WebApi.Controllers.v1
         [HttpPost]
         public async Task<IActionResult> Create (CreateVehicleCommand vehicleCommand)
         {           
-          var result  = (await Mediator.Send(vehicleCommand));
+            var result  = (await Mediator.Send(vehicleCommand));
             if (result.Succeeded) return (Ok(result));
             return BadRequest(result);
         }
