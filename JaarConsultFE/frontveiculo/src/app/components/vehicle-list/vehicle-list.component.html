@@ -1,29 +1,31 @@
 
-<table class="table">
-  <thead>
-    <tr>
-      <!-- <th scope="col">Id</th> -->
-      <th scope="col">Placa</th>
-      <th scope="col">Valor</th>
-      <th scope="col">Marca</th>
-      <th scope="col">Modelo</th>
-      <th scope="col">Ano Modelo</th>
-      <th scope="col">Combustível</th>
-      <th scope="col">Fipe</th>
-      <th scope="col">Mês referência</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let vehicle of data">
-      <!-- <td>{{vehicle.id}}</td> -->
-      <td>{{vehicle.placa}}</td>
-      <td>{{vehicle.valor}}</td>
-      <td>{{vehicle.marca}}</td>
-      <td>{{vehicle.modelo}}</td>
-      <td>{{vehicle.anoModelo}}</td>
-      <td>{{vehicle.combustivel}}</td>
-      <td>{{vehicle.codigoFipe}}</td>
-      <td>{{vehicle.mesReferencia}}</td>
-    </tr>
-  </tbody>
-</table>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <!-- <th scope="col">Id</th> -->
+        <th scope="col">Placa</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Ano Modelo</th>
+        <th scope="col">Combustível</th>
+        <th scope="col">Fipe</th>
+        <th scope="col">Mês referência</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicle of data">
+        <!-- <td>{{vehicle.id}}</td> -->
+        <td>{{vehicle.placa}}</td>
+        <td>{{vehicle.valor}}</td>
+        <td>{{vehicle.marca}}</td>
+        <td>{{vehicle.modelo}}</td>
+        <td>{{vehicle.anoModelo}}</td>
+        <td>{{vehicle.combustivel}}</td>
+        <td>{{vehicle.codigoFipe}}</td>
+        <td>{{vehicle.mesReferencia}}</td>
+      </tr>
+    </tbody>
+  </table>
+

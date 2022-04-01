@@ -1,12 +1,17 @@
 <div class="container">
 
+  <div class="card mb-12 shadow-sm">
+    <div class="card-header">
+      Atualização de Veículos
+    </div>
+
   <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{ successMessage }}
   </ngb-alert>
   <p>
 
   <ngb-alert #selfClosingAlert *ngIf="errorMessage" type="danger" (closed)="errorMessage = ''">{{ errorMessage }}
   </ngb-alert>
-  <p>
+  <div>
 
   <div class="row">
     <div class="col">
@@ -136,5 +141,7 @@
       (click)="trash()">Excluir</button>
     </div>
   </form>
+
+</div>
 
 </div>
